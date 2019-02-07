@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<link href="style.css" rel="stylesheet" type="text/css" />
+		<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"> -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <style>
+      h3 {
+        font-family: 'Times New Roman', Times, serif;
+        background-color:black;
+        color:white;
+        text-align: center;
+        font-size: 50px;
+        margin-top:15px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+      }
+      button{
+        font-family: 'Times New Roman', Times, serif;
+        background-color:black;
+        color:white;
+        text-align: right;
+        font-size: 20px;
+      }
+
+
+    </style>
+		<title>AJAX-webservice Exercise </title>
+	</head>
+	<body>
+
+    <h3 >The Quote for today</h3>
+    
+    <div id="photo"></div>
+    <div id="quote"></div>
+    <div id="author"></div>
+    <div id="source"></div>
+
+     <script>
+         fetch('https://thatsthespir.it/api')
+         .then(function(response) {
+           return response.json();
+         })
+         .then(function(data) {           
+         let quotes=JSON.stringify(data.quote);   
+         document.querySelector("#quote").innerHTML=quotes;
+            
+          /*   $("#quote").text(quotes); */
+           
+           
+         })
+        
+         .catch(error => console.error(error));
+
+           
+  
+ 
+    
+    </script>   
+    </body>
+</html>
